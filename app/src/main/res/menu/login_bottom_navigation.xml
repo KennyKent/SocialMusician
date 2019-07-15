@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/login_frame"
+        android:icon="@drawable/ic_login"
+        android:title="@string/bottom_navigation_sign_in" />
+    <item
+        android:id="@+id/sign_up_frame"
+        android:icon="@drawable/ic_sign_up"
+        android:title="@string/bottom_navigation_sign_up" />
+    <item
+        android:id="@+id/sign_up_socials_frame"
+        android:icon="@drawable/ic_network"
+        android:title="@string/bottom_navigation_sign_up_network" />
+</menu>
