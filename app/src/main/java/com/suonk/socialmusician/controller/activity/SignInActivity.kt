@@ -3,6 +3,7 @@ package com.suonk.musiciansocialnetwork.controller.activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.graphics.Point
 import android.os.Bundle
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -10,18 +11,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 
 import android.util.Log
-import android.view.MenuItem
-import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
 import android.widget.EditText
-import android.widget.LinearLayout
 import android.widget.Toast
 
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import com.google.android.material.button.MaterialButton
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.suonk.musiciansocialnetwork.R
@@ -29,15 +23,15 @@ import com.suonk.musiciansocialnetwork.R
 //import com.google.firebase.
 //import com.google.firebase.database.FirebaseDatabase;
 
-class LoginActivity : AppCompatActivity() {
+class SignInActivity : AppCompatActivity() {
 
     //region ========================================== Var or Val ==========================================
 
-    private var bottomNavigationView: BottomNavigationView? = null
+    private var sign_in_BottomNavigationView: BottomNavigationView? = null
 
-    private var login_activity_Email: EditText? = null
-    private var login_activity_Password: EditText? = null
-    private var login_activity_SignInButton: MaterialButton? = null
+    private var sign_in_activity_Email: EditText? = null
+    private var sign_in_activity_Password: EditText? = null
+    private var sign_in_activity_SignInButton: MaterialButton? = null
 
     private var mAuth: FirebaseAuth? = null
 
@@ -45,16 +39,28 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+
+        val display = windowManager.defaultDisplay
+        val size = Point()
+        display.getSize(size)
+        val height = size.y
+        // Nous permet d'avoir un écran adapté a différente taille d'écran
+        when {
+            height > 2500 -> setContentView(R.layout.activity_sign_in_bigger)
+            height in 2000..2499 -> setContentView(R.layout.activity_sign_in_bigger)
+            height in 1200..2101 -> setContentView(R.layout.activity_sign_in_normal)
+            height < 1200 -> setContentView(R.layout.activity_sign_in_normal)
+        }
+
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT
 
         //region ========================================== FindViewById ===========================================
 
-        bottomNavigationView = findViewById(R.id.navigation)
+        sign_in_BottomNavigationView = findViewById(R.id.sign_in_bottom_navigation_view)
 
-        login_activity_SignInButton = findViewById(R.id.login_activity_sign_in_button)
-        login_activity_Email = findViewById(R.id.login_activity_email)
-        login_activity_Password = findViewById(R.id.login_activity_password)
+        sign_in_activity_SignInButton = findViewById(R.id.sign_in_activity_sign_in_button)
+        sign_in_activity_Email = findViewById(R.id.sign_in_activity_email_edit_text)
+        sign_in_activity_Password = findViewById(R.id.sign_in_activity_password_edit_text)
 
         //endregion
 
@@ -65,25 +71,25 @@ class LoginActivity : AppCompatActivity() {
 
         val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.login_frame -> {
+                R.id.sign_in_frame -> {
                 }
                 R.id.sign_up_frame -> {
-                    startActivity(Intent(this@LoginActivity, SignUpActivity::class.java))
+                    startActivity(Intent(this@SignInActivity, SignUpActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.sign_up_socials_frame -> {
-                    startActivity(Intent(this@LoginActivity, SignUpActivity::class.java))
+                    startActivity(Intent(this@SignInActivity, SignUpActivity::class.java))
                     return@OnNavigationItemSelectedListener true
                 }
             }
             false
         }
 
-        bottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        sign_in_BottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
-        login_activity_SignInButton!!.setOnClickListener {
-            signInExistingUsers(login_activity_Email!!.toString(), login_activity_Email!!.toString())
-            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        sign_in_activity_SignInButton!!.setOnClickListener {
+            signInExistingUsers(sign_in_activity_Email!!.toString(), sign_in_activity_Email!!.toString())
+            startActivity(Intent(this@SignInActivity, MainActivity::class.java))
         }
 
         //endregion
@@ -112,7 +118,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun signUpNewUsers() {
-        mAuth!!.createUserWithEmailAndPassword(login_activity_Email!!.toString(), login_activity_Email!!.toString())
+        mAuth!!.createUserWithEmailAndPassword(sign_in_activity_Email!!.toString(), sign_in_activity_Email!!.toString())
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
@@ -122,7 +128,7 @@ class LoginActivity : AppCompatActivity() {
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                        Toast.makeText(this@LoginActivity, "Authentication failed.",
+                        Toast.makeText(this@SignInActivity, "Authentication failed.",
                                 Toast.LENGTH_SHORT).show()
                         updateUI(null)
                     }
@@ -152,7 +158,7 @@ class LoginActivity : AppCompatActivity() {
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "signInWithEmail:failure", task.exception)
-                        Toast.makeText(this@LoginActivity, "Authentication failed.",
+                        Toast.makeText(this@SignInActivity, "Authentication failed.",
                                 Toast.LENGTH_SHORT).show()
                         updateUI(null)
                     }

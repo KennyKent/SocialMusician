@@ -1,4 +1,4 @@
-package com.suonk.musiciansocialnetwork.controller
+package com.suonk.socialmusician.controller
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -24,9 +24,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.textfield.TextInputLayout
-import com.suonk.musiciansocialnetwork.R
-import com.suonk.musiciansocialnetwork.model.MusicStyle
-import com.suonk.musiciansocialnetwork.model.User
+import com.suonk.socialmusician.R
+import com.suonk.socialmusician.model.MusicStyle
+import com.suonk.socialmusician.model.User
 import java.io.ByteArrayOutputStream
 
 class EditMyProfileActivity : AppCompatActivity() {

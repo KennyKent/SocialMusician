@@ -1,26 +1,15 @@
-package com.suonk.musiciansocialnetwork.controller;
+package com.suonk.socialmusician.controller;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
-import com.suonk.musiciansocialnetwork.R;
-import com.suonk.musiciansocialnetwork.model.Musicians;
+import com.suonk.socialmusician.R;
+import com.suonk.socialmusician.model.ModelDB.MusicianDB;
 
 import java.util.List;
 
@@ -32,9 +21,9 @@ import java.util.List;
 public class MusiciansGridViewAdapter extends BaseAdapter {
     private LayoutInflater layoutInflater;
     private Context context;
-    private List<Musicians> listOfMusicians;
+    private List<MusicianDB> listOfMusicians;
 
-    public MusiciansGridViewAdapter(Context context, List<Musicians> listOfMusicians) {
+    public MusiciansGridViewAdapter(Context context, List<MusicianDB> listOfMusicians) {
         this.context = context;
         this.listOfMusicians = listOfMusicians;
         layoutInflater = LayoutInflater.from(context);
@@ -46,7 +35,7 @@ public class MusiciansGridViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public Musicians getItem(int position) {
+    public MusicianDB getItem(int position) {
         return listOfMusicians.get(position);
     }
 
@@ -68,8 +57,8 @@ public class MusiciansGridViewAdapter extends BaseAdapter {
         holder.musicians_grid_item_RoundedImage = gridview.findViewById(R.id.grid_musicians_item_rounded_image);
         holder.musicians_grid_item_FirstName = gridview.findViewById(R.id.grid_musicians_item_first_name);
 
-        holder.musicians_grid_item_RoundedImage.setImageResource(listOfMusicians.get(position).getProfileImage());
-        holder.musicians_grid_item_FirstName.setText(listOfMusicians.get(position).getName());
+        holder.musicians_grid_item_RoundedImage.setImageResource(listOfMusicians.get(position).getProfilePicture());
+        holder.musicians_grid_item_FirstName.setText(listOfMusicians.get(position).getFirstName() + " " + listOfMusicians.get(position).getLastName());
 
         gridview.setTag(holder);
 

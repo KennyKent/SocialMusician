@@ -1,4 +1,4 @@
-package com.suonk.musiciansocialnetwork.model;
+package com.suonk.socialmusician.model;
 
 public class MusicStyle {
     private int idMusicStyle;

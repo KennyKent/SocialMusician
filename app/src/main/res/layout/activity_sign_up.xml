@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".controller.activity.SignUpActivity">
 
-    <com.suonk.musiciansocialnetwork.controller.CircularImageView
+    <com.suonk.socialmusician.controller.CircularImageView
         android:id="@+id/sign_up_activity_rounded_image_view"
         android:layout_width="@dimen/rounded_image_view_height_width"
         android:layout_height="@dimen/rounded_image_view_height_width"
@@ -32,42 +32,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_activity_rounded_image_view">
 
-        <RelativeLayout
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/sign_up_activity_first_name_icon"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/rectangle_background_grey">
+            android:background="@drawable/rectangle_background_grey"
+            android:contentDescription="@string/sign_up_activity_name_content_description"
+            app:srcCompat="@drawable/ic_man_user" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/sign_up_activity_name_content_description"
-                app:srcCompat="@drawable/ic_man_user" />
-        </RelativeLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/sign_up_activity_first_name"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/sign_up_activity_first_name_icon"
+            android:background="@drawable/custom_edit_text_background"
             android:hint="@string/sign_up_activity_first_name_hint"
+            android:inputType="textPersonName"
+            android:maxLines="1"
             android:paddingStart="10dp"
-            android:paddingBottom="10dp"
-            android:paddingEnd="10dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/custom_edit_text_background"
-                android:inputType="textPersonName"
-                android:paddingBottom="5dp"
-                android:maxLines="1"
-                android:textColor="@color/textColor" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:paddingEnd="10dp"
+            android:textColor="@color/textColor" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -82,40 +69,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_activity_first_name_layout">
 
-        <RelativeLayout
+
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/sign_up_activity_last_name_icon"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/rectangle_background_grey">
+            android:background="@drawable/rectangle_background_grey"
+            android:contentDescription="@string/sign_up_activity_name_content_description"
+            app:srcCompat="@drawable/ic_man_user" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/sign_up_activity_name_content_description"
-                app:srcCompat="@drawable/ic_man_user" />
-        </RelativeLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/sign_up_activity_last_name"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/sign_up_activity_last_name_icon"
+            android:background="@drawable/custom_edit_text_background"
+            android:hint="@string/sign_up_activity_last_name_hint"
+            android:inputType="textPersonName"
+            android:maxLines="1"
             android:paddingStart="10dp"
-            android:paddingEnd="10dp">
+            android:paddingEnd="10dp"
+            android:textColor="@color/textColor" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/custom_edit_text_background"
-                android:hint="@string/sign_up_activity_last_name_hint"
-                android:inputType="textPersonName"
-                android:maxLines="1"
-                android:textColor="@color/textColor" />
-
-        </com.google.android.material.textfield.TextInputLayout>
     </RelativeLayout>
 
     <RelativeLayout
@@ -130,40 +108,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_activity_last_name_layout">
 
-        <RelativeLayout
+        <ImageView
             android:id="@+id/sign_up_activity_mail_address_icon"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/rectangle_background_grey">
+            android:background="@drawable/rectangle_background_grey"
+            android:contentDescription="@string/sign_up_activity_mail_address_content_description"
+            app:srcCompat="@drawable/ic_mail_address" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/sign_up_activity_mail_address_content_description"
-                app:srcCompat="@drawable/ic_mail_address" />
-        </RelativeLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/sign_up_activity_mail_address"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/sign_up_activity_mail_address_icon"
+            android:background="@drawable/custom_edit_text_background"
+            android:hint="@string/sign_up_activity_mail_address_hint"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
             android:paddingStart="10dp"
-            android:paddingEnd="10dp">
+            android:paddingEnd="10dp"
+            android:textColor="@color/textColor" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/custom_edit_text_background"
-                android:hint="@string/sign_up_activity_mail_address_hint"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:textColor="@color/textColor" />
-
-        </com.google.android.material.textfield.TextInputLayout>
     </RelativeLayout>
 
     <RelativeLayout
@@ -178,40 +146,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_activity_mail_address_layout">
 
-        <RelativeLayout
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/sign_up_activity_password_icon"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/rectangle_background_grey">
+            android:background="@drawable/rectangle_background_grey"
+            android:contentDescription="@string/sign_up_activity_password_content_description"
+            app:srcCompat="@drawable/ic_lock" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/sign_up_activity_password_content_description"
-                app:srcCompat="@drawable/ic_lock" />
-        </RelativeLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/sign_up_activity_password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/sign_up_activity_password_icon"
+            android:background="@drawable/custom_edit_text_background"
+            android:hint="@string/sign_up_activity_password_hint"
+            android:inputType="textPassword"
+            android:maxLines="1"
             android:paddingStart="10dp"
-            android:paddingEnd="10dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/custom_edit_text_background"
-                android:hint="@string/sign_up_activity_password_hint"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:textColor="@color/textColor" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:paddingEnd="10dp"
+            android:textColor="@color/textColor" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -226,50 +183,49 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_activity_password_layout">
 
-        <RelativeLayout
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/sign_up_activity_password_confirmed_icon"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/rectangle_background_grey">
+            android:background="@drawable/rectangle_background_grey"
+            android:contentDescription="@string/sign_up_activity_password_content_description"
+            app:srcCompat="@drawable/ic_lock" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/sign_up_activity_password_content_description"
-                app:srcCompat="@drawable/ic_lock" />
-        </RelativeLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/sign_up_activity_password_confirmed"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/sign_up_activity_password_confirmed_icon"
+            android:background="@drawable/custom_edit_text_background"
+            android:hint="@string/sign_up_activity_confirmed_password_hint"
+            android:inputType="textPassword"
+            android:maxLines="1"
             android:paddingStart="10dp"
-            android:paddingEnd="10dp">
+            android:paddingEnd="10dp"
+            android:textColor="@color/textColor" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/custom_edit_text_background"
-                android:hint="@string/sign_up_activity_confirmed_password_hint"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:textColor="@color/textColor" />
-
-        </com.google.android.material.textfield.TextInputLayout>
     </RelativeLayout>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sign_in_activity_sign_in_button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/sign_in_activity_button_sign_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_activity_password_confirmed_layout" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation"
+        android:id="@+id/sign_up_bottom_navigation_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/login_bottom_navigation" />
+        app:menu="@menu/sign_in_bottom_navigation_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

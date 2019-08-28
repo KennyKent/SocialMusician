@@ -1,4 +1,4 @@
-package com.suonk.musiciansocialnetwork.controller;
+package com.suonk.socialmusician.controller;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -16,7 +16,7 @@ import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatImageView;
 
-import com.suonk.musiciansocialnetwork.R;
+import com.suonk.socialmusician.R;
 
 import static android.widget.ImageView.ScaleType.CENTER_CROP;
 import static android.widget.ImageView.ScaleType.CENTER_INSIDE;

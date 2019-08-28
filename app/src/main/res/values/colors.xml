@@ -30,6 +30,6 @@
     <color name="relativeLayoutPressedColorDark">#777777</color>
     <color name="borderViewColorDark">#646464</color>
 
-    <color name="colorBlueLinkLight">#9bcaed</color>
-    <color name="colorBlueLinkClick">#2dabff</color>
+    <color name="colorBlueLinkLight">#2dabff</color>
+    <color name="colorBlueLinkClick">#2e63c9</color>
 </resources>

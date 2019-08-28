@@ -1,4 +1,4 @@
-package com.suonk.musiciansocialnetwork.model;
+package com.suonk.socialmusician.model;
 
 import java.util.List;
 

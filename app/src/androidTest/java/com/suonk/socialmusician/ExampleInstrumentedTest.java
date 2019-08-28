@@ -1,4 +1,4 @@
-package com.suonk.musiciansocialnetwork;
+package com.suonk.socialmusician;
 
 import android.content.Context;
 import androidx.test.InstrumentationRegistry;

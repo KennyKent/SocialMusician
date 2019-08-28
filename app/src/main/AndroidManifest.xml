@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.suonk.musiciansocialnetwork">
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    package="com.suonk.socialmusician">
+    <!-- To auto-complete the email text field in the sign_in form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -15,21 +15,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".controller.activity.SignUpActivity"></activity>
-        <activity android:name=".controller.activity.MyFriendsActivity" />
-        <activity android:name=".controller.activity.SplashScreenActivity">
+        <activity android:name="com.suonk.socialmusician.controller.activity.SignUpActivity"></activity>
+        <activity android:name="com.suonk.socialmusician.controller.activity.MyFriendsActivity" />
+        <activity android:name="com.suonk.socialmusician.controller.activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.activity.LoginActivity" />
+        <activity android:name="com.suonk.socialmusician.controller.activity.SignInActivity" />
         <activity
-            android:name=".controller.activity.MainActivity"
+            android:name="com.suonk.socialmusician.controller.activity.MainActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".controller.activity.MyProfileActivity"
+            android:name="com.suonk.socialmusician.controller.activity.MyProfileActivity"
             android:theme="@style/AppTheme" />
     </application>
 

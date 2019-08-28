@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        <com.suonk.musiciansocialnetwork.controller.CircularImageView
+        <com.suonk.socialmusician.controller.CircularImageView
             android:id="@+id/my_profile_user_image"
             android:layout_width="100dp"
             android:layout_height="100dp"

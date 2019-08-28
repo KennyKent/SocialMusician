@@ -7,7 +7,7 @@
     android:clickable="true"
     android:focusable="true">
 
-    <com.suonk.musiciansocialnetwork.controller.CircularImageView
+    <com.suonk.socialmusician.controller.CircularImageView
         android:id="@+id/grid_musicians_item_rounded_image"
         android:layout_width="@dimen/rounded_image_view_height_width"
         android:layout_height="@dimen/rounded_image_view_height_width"

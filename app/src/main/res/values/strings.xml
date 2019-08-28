@@ -14,17 +14,17 @@
     <string name="bottom_navigation_sign_up_network">With Socials Networks</string>
     <!--endregion Strings related to Bottom Navigation View in Sign In and Sign Up -->
 
-        <!--region Strings related to LoginActivity -->
-        <string name="login_activity_mail_hint">Enter your mail address</string>
-        <string name="login_activity_password_hint">Enter your password</string>
-        <string name="login_activity_forget_password_link">Forgot password ?</string>
-        <string name="login_activity_app_description">A Social Network for Musicians</string>
-        <string name="login_activity_button_sign_in">Login</string>
+        <!--region Strings related to SignInActivity -->
+        <string name="sign_in_activity_mail_hint">Enter your mail address</string>
+        <string name="sign_in_activity_password_hint">Enter your password</string>
+        <string name="sign_in_activity_forget_password_link">Forgot password ?</string>
+        <string name="sign_in_activity_app_description">A Social Network for Musicians</string>
+        <string name="sign_in_activity_button_sign_in">Sign In</string>
 
-        <string name="login_activity_app_logo_content_description">MeetMusicians Logo</string>
-        <string name="login_activity_mail_content_description">Email Icon</string>
-        <string name="login_activity_password_content_description">Password Icon</string>
-        <!--endregion Strings related to LoginActivity -->
+        <string name="sign_in_activity_app_logo_content_description">MeetMusicians Logo</string>
+        <string name="sign_in_activity_mail_content_description">Email Icon</string>
+        <string name="sign_in_activity_password_content_description">Password Icon</string>
+        <!--endregion Strings related to SignInActivity -->
 
         <!--region Strings related to SignUpActivity -->
         <string name="sign_up_activity_first_name_hint">First Name</string>
