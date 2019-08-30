@@ -1,9 +1,9 @@
-package com.suonk.musiciansocialnetwork.model.requestDB
+package com.suonk.socialmusician.model.requestDB
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.suonk.musiciansocialnetwork.model.ModelDB.MusicianDetailsDB
+import com.suonk.socialmusician.model.ModelDB.MusicianDetailsDB
 
 /**
  * Interface réunissent les différentes requêtes d'interaction avec la table contact detail
@@ -16,22 +16,22 @@ interface MusicianDetailsDao {
      * @param id Int    Id du contact sélectionné
      * @return [MusicianDetailsDB]
      */
-    @Query("SELECT * FROM contact_details_table where tag='phone'AND id_contact=:id")
+    @Query("SELECT * FROM musician_details_table where type='phone' AND id_musician=:id")
     fun getPhoneNumberById(id: Int?): MusicianDetailsDB
 
     /**
-     * Récupère un [contact detail][MusicianDetailsDB] qui possède une addresse mail grâce à son id.
+     * Récupère un [contact detail][MusicianDetailsDB] qui possède une adresse mail grâce à son id.
      * @param id Int    Id du contact sélectionné
      * @return [MusicianDetailsDB]
      */
-    @Query("SELECT * FROM contact_details_table where tag='mail'AND id_contact=:id")
+    @Query("SELECT * FROM musician_details_table where type='mail'AND id_musician=:id")
     fun getMailById(id: Int?): MusicianDetailsDB
 
     /**
      * Récupère tout les [contactList details][MusicianDetailsDB] de la table.
      * @return List&lt[MusicianDetailsDB]&gt
      */
-    @Query("SELECT * FROM contact_details_table")
+    @Query("SELECT * FROM musician_details_table")
     fun getAllpropertiesEditContact(): List<MusicianDetailsDB>
 
     /**
@@ -39,7 +39,7 @@ interface MusicianDetailsDao {
      * @param contactID Int     Id du contact sélectionné
      * @return List&lt[MusicianDetailsDB]&gt
      */
-    @Query("SELECT * FROM contact_details_table WHERE id_contact=:contactID")
+    @Query("SELECT * FROM musician_details_table WHERE id_musician=:contactID")
     fun getDetailsForAContact(contactID: Int): List<MusicianDetailsDB>
 
     /**
@@ -47,7 +47,7 @@ interface MusicianDetailsDao {
      * @param id Int            Id du contact sélectionné
      * @param contactDetail     détail du contact (mail, numéro de tel, etc...)
      */
-    @Query("UPDATE contact_details_table SET content = :contactDetail WHERE id = :id")
+    @Query("UPDATE musician_details_table SET content = :contactDetail WHERE id = :id")
     fun updateContactDetailById(id: Int, contactDetail: String)
 
     /**
@@ -61,14 +61,14 @@ interface MusicianDetailsDao {
      * Supprime un [contact detail][MusicianDetailsDB] dans la base de données.
      * @param id Int    id du detail
      */
-    @Query("DELETE FROM contact_details_table WHERE id = :id")
+    @Query("DELETE FROM musician_details_table WHERE id = :id")
     fun deleteDetailById(id: Int)
 
     /**
      * Supprime tout les [contact detail][MusicianDetailsDB] d'un contact.
      * @param id Int    id du contact
      */
-    @Query("DELETE FROM contact_details_table WHERE id_contact = :id")
+    @Query("DELETE FROM musician_details_table WHERE id_musician = :id")
     fun deleteAllDetailsOfContact(id: Int)
 
 }

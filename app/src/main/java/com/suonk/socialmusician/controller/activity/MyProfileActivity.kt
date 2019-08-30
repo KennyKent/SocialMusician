@@ -1,4 +1,4 @@
-package com.suonk.musiciansocialnetwork.controller.activity
+package com.suonk.socialmusician.controller.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
-import com.suonk.musiciansocialnetwork.R
+import com.suonk.socialmusician.R
 
 class MyProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 

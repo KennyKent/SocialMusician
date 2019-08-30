@@ -1,14 +1,13 @@
-package com.suonk.musiciansocialnetwork.controller.activity
+package com.suonk.socialmusician.controller.activity
 
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
-import com.suonk.musiciansocialnetwork.R
+import com.suonk.socialmusician.R
 
 class SignUpActivity : AppCompatActivity() {
 

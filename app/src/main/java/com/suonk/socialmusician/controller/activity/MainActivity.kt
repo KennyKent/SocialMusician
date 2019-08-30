@@ -1,12 +1,10 @@
-package com.suonk.musiciansocialnetwork.controller.activity
+package com.suonk.socialmusician.controller.activity
 
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 
 import com.google.android.material.navigation.NavigationView
-import com.suonk.musiciansocialnetwork.R
+import com.suonk.socialmusician.R
 
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -14,17 +12,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
 import android.view.MenuItem
-import android.view.View
 import android.widget.GridView
 import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import com.suonk.musiciansocialnetwork.controller.CircularImageView
-import com.suonk.musiciansocialnetwork.controller.MusiciansGridViewAdapter
-import com.suonk.musiciansocialnetwork.model.MusicStyle
-import com.suonk.musiciansocialnetwork.model.Musicians
-import com.suonk.musiciansocialnetwork.model.User
+import com.suonk.socialmusician.controller.CircularImageView
+import com.suonk.socialmusician.controller.MusiciansGridViewAdapter
+import com.suonk.socialmusician.model.ModelDB.MusicianDB
+import com.suonk.socialmusician.model.MusicStyle
+import com.suonk.socialmusician.model.User
 import java.util.ArrayList
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -43,16 +40,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private var nav_HeaderUserInstrument: TextView? = null
     private var nav_HeaderUserMusicStyle: TextView? = null
 
-    private val listOfMusicians: List<Musicians>
+    private val listOfMusicians: List<MusicianDB>
         get() {
-            val listOfMusicians = ArrayList<Musicians>()
-            val Leo = Musicians(1, "Leo", "Sevran, France", "Bla bla bla", 24, R.drawable.img_avatar, "Bass", MusicStyle(""), true)
-            val Juju = Musicians(2, "Juju", "Sevran, France", "Bliblo", 26, R.drawable.img_avatar, "Bass", MusicStyle(""), true)
-            val Thomas = Musicians(3, "Thomas", "Blancoc, France", "Ble ble", 22, R.drawable.img_avatar, "Drum", MusicStyle(""), true)
-            val Matthias = Musicians(4, "Matthias", "Villejuif, France", "", 20, R.drawable.img_avatar, "Keyboard", MusicStyle(""), true)
-            val Flo = Musicians(5, "Flo", "Aulnay Sous Bois, France", "bdjqodijzdoijqz", 24, R.drawable.img_avatar, "Guitar", MusicStyle(""), true)
-            val Adri = Musicians(6, "Adri", "Ermont - Eaubonne, France", "bdjqodijzdoijqz", 20, R.drawable.img_avatar, "Sax", MusicStyle(""), true)
-            val Samson = Musicians(7, "Samson", "Villiers sur Marne, France", "bdjqodijzdoijqz", 18, R.drawable.img_avatar, "Drum", MusicStyle(""), true)
+            val listOfMusicians = ArrayList<MusicianDB>()
+            val Leo = MusicianDB(1, "Leo", "Sevran, France", "Bla bla bla", 24, R.drawable.img_avatar, "Bass", MusicStyle(""), true)
+            val Juju = MusicianDB(2, "Juju", "Sevran, France", "Bliblo", 26, R.drawable.img_avatar, "Bass", MusicStyle(""), true)
+            val Thomas = MusicianDB(3, "Thomas", "Blancoc, France", "Ble ble", 22, R.drawable.img_avatar, "Drum", MusicStyle(""), true)
+            val Matthias = MusicianDB(4, "Matthias", "Villejuif, France", "", 20, R.drawable.img_avatar, "Keyboard", MusicStyle(""), true)
+            val Flo = MusicianDB(5, "Flo", "Aulnay Sous Bois, France", "bdjqodijzdoijqz", 24, R.drawable.img_avatar, "Guitar", MusicStyle(""), true)
+            val Adri = MusicianDB(6, "Adri", "Ermont - Eaubonne, France", "bdjqodijzdoijqz", 20, R.drawable.img_avatar, "Sax", MusicStyle(""), true)
+            val Samson = MusicianDB(7, "Samson", "Villiers sur Marne, France", "bdjqodijzdoijqz", 18, R.drawable.img_avatar, "Drum", MusicStyle(""), true)
 
             listOfMusicians.add(Leo)
             listOfMusicians.add(Juju)

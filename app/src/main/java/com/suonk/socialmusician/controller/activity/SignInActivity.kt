@@ -1,4 +1,4 @@
-package com.suonk.musiciansocialnetwork.controller.activity
+package com.suonk.socialmusician.controller.activity
 
 import android.content.Context
 import android.content.Intent
@@ -18,7 +18,7 @@ import android.widget.Toast
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.suonk.musiciansocialnetwork.R
+import com.suonk.socialmusician.R
 
 //import com.google.firebase.
 //import com.google.firebase.database.FirebaseDatabase;

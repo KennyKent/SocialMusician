@@ -1,4 +1,4 @@
-package com.suonk.musiciansocialnetwork.controller.activity
+package com.suonk.socialmusician.controller.activity
 
 import android.content.Intent
 import android.content.pm.ActivityInfo
@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 
-import com.suonk.musiciansocialnetwork.R
+import com.suonk.socialmusician.R
 
 class SplashScreenActivity : AppCompatActivity() {
 

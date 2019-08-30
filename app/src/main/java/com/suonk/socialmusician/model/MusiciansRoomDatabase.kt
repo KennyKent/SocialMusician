@@ -6,42 +6,42 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import android.content.Context
-import com.example.knocker.model.ModelDB.*
-import com.example.knocker.model.requestDB.*
+import com.suonk.socialmusician.model.ModelDB.*
+import com.suonk.socialmusician.model.requestDB.*
 
 /**
  * La Classe qui permet de créer la base de données et de la garder à jour
- * @author Ryan Granet
+ * @author Kenzy Suon
  */
-@Database(entities = [ContactDB::class, NotificationDB::class, GroupDB::class, ContactDetailDB::class, LinkContactGroup::class], version = 12)
-abstract class ContactsRoomDatabase : RoomDatabase() {
-    abstract fun musiciansDao(): ContactsDao
-    abstract fun musiciansDetailsDao(): ContactDetailsDao
+@Database(entities = [MusicianDB::class, MusicianDetailsDB::class], version = 1)
+abstract class MusiciansRoomDatabase : RoomDatabase() {
+    abstract fun musiciansDao(): MusiciansDao
+    abstract fun musiciansDetailsDao(): MusicianDetailsDao
 
     companion object {
-        private var INSTANCE: ContactsRoomDatabase? = null
+        private var INSTANCE: MusiciansRoomDatabase? = null
 
         //creation de la base de données
-        fun getDatabase(context: Context): ContactsRoomDatabase? {
+        fun getDatabase(context: Context): MusiciansRoomDatabase? {
             if (INSTANCE != null) {
                 return INSTANCE
             }
             synchronized(this) {
                 INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
-                        ContactsRoomDatabase::class.java,
-                        "Contact_database")
-                        .addMigrations(MIGRATION_1_2)
+                        MusiciansRoomDatabase::class.java,
+                        "Musician_database")
+//                        .addMigrations(MIGRATION_1_2)
                         .allowMainThreadQueries()
                         .build()
                 return INSTANCE
             }
         }
 
-        private val MIGRATION_1_2 = object : Migration(1, 2) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("ALTER TABLE contacts_table " + " ADD COLUMN mail TEXT DEFAULT '' NOT NULL")
-            }
-        }
+//        private val MIGRATION_1_2 = object : Migration(1, 2) {
+//            override fun migrate(database: SupportSQLiteDatabase) {
+//                database.execSQL("ALTER TABLE musician_table " + " ADD COLUMN mail TEXT DEFAULT '' NOT NULL")
+//            }
+//        }
     }
 }
