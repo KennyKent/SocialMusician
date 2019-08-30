@@ -5,11 +5,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "com.suonk.musiciansocialnetwork"
         minSdkVersion 23
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -35,17 +35,8 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.2.0-beta01'
     kapt 'androidx.room:room-compiler:2.2.0-beta01'
     androidTestImplementation 'androidx.room:room-testing:2.2.0-beta01'
-
-    // FIREBASE
-    implementation 'com.google.firebase:firebase-auth:19.0.0'
-
-    // FirebaseUI
-    implementation 'com.firebaseui:firebase-ui-auth:4.1.0'
-    implementation "androidx.core:core-ktx:1.0.2"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
-apply plugin: 'com.google.gms.google-services'
 repositories {
     mavenCentral()
 }
