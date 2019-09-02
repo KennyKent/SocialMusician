@@ -60,7 +60,7 @@ class MyProfileActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_home -> {
                 startActivity(Intent(this@MyProfileActivity, MainActivity::class.java))
             }
-            R.id.nav_add_user -> {
+            R.id.nav_friends -> {
                 startActivity(Intent(this@MyProfileActivity, MyFriendsActivity::class.java))
             }
             R.id.nav_settings -> {

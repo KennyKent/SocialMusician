@@ -4,9 +4,13 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.suonk.socialmusician.R
 
 class SignUpActivity : AppCompatActivity() {
@@ -22,6 +26,8 @@ class SignUpActivity : AppCompatActivity() {
     private var sign_up_activity_PasswordConfirmed: AppCompatEditText? = null
 
     private var sign_up_activity_SignUpButton: MaterialButton? = null
+
+    private var mAuth: FirebaseAuth? = null
 
     //endregion
 
@@ -64,6 +70,19 @@ class SignUpActivity : AppCompatActivity() {
         sign_up_BottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
         sign_up_activity_SignUpButton!!.setOnClickListener {
+            if (sign_up_activity_FirstName!!.text.toString().isEmpty() || sign_up_activity_LastName!!.text.toString().isEmpty() ||
+                    sign_up_activity_MailAddress!!.text.toString().isEmpty() || sign_up_activity_Password!!.text.toString().isEmpty() ||
+                    sign_up_activity_PasswordConfirmed!!.text.toString().isEmpty()) {
+                Toast.makeText(this@SignUpActivity, "Field should not be empty",
+                        Toast.LENGTH_SHORT).show()
+            } else {
+                if (sign_up_activity_Password!!.text.toString() != sign_up_activity_PasswordConfirmed!!.text.toString()) {
+                    Toast.makeText(this@SignUpActivity, "Password were not the same",
+                            Toast.LENGTH_SHORT).show()
+                } else {
+//                    signUpNewUsers(sign_up_activity_MailAddress!!.text.toString(), sign_up_activity_Password!!.toString())
+                }
+            }
 
         }
 
@@ -80,6 +99,37 @@ class SignUpActivity : AppCompatActivity() {
 
         return true
     }
+
+    private fun updateUI(user: FirebaseUser?) {
+        var user = user
+        user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            val name = user.displayName
+            val email = user.email
+            val uid = user.uid
+
+            val emailVerified = user.isEmailVerified
+
+        }
+    }
+
+//    private fun signUpNewUsers() {
+//        mAuth!!.createUserWithEmailAndPassword(sign_in_activity_Email!!.toString(), sign_in_activity_Email!!.toString())
+//                .addOnCompleteListener(this) { task ->
+//                    if (task.isSuccessful) {
+//                        // Sign in success, update UI with the signed-in user's information
+//                        Log.d(SignInActivity.TAG, "createUserWithEmail:success")
+//                        val user = mAuth!!.currentUser
+//                        updateUI(user)
+//                    } else {
+//                        // If sign in fails, display a message to the user.
+//                        Log.w(SignInActivity.TAG, "createUserWithEmail:failure", task.exception)
+//                        Toast.makeText(this@SignInActivity, "Authentication failed.",
+//                                Toast.LENGTH_SHORT).show()
+//                        updateUI(null)
+//                    }
+//                }
+//    }
 
     //endregion
 }

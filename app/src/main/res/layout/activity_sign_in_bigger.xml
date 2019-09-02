@@ -14,7 +14,7 @@
         android:layout_marginTop="50dp"
         android:text="@string/app_name"
         android:textColor="@color/textColor"
-        android:textSize="50sp"
+        android:textSize="45sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/sign_in_activity_app_description"
         android:textColor="@color/textColorGrey"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,9 +35,9 @@
 
     <ImageView
         android:id="@+id/sign_in_activity_app_logo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="25dp"
         android:contentDescription="@string/sign_in_activity_app_logo_content_description"
         android:src="@drawable/ic_musical_notes_symbols"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +48,7 @@
         android:id="@+id/sign_in_activity_email_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/custom_edit_text_layout_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +65,7 @@
         <!--android:layout_width="@dimen/width_edit_text"-->
         <!--android:layout_height="@dimen/height_edit_text"-->
 
-        <com.google.android.material.textfield.TextInputEditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/sign_in_activity_email_edit_text"
             android:layout_width="@dimen/width_edit_text"
             android:layout_height="@dimen/height_edit_text"
@@ -96,7 +96,7 @@
             android:contentDescription="@string/sign_in_activity_password_content_description"
             app:srcCompat="@drawable/ic_lock" />
 
-        <com.google.android.material.textfield.TextInputEditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/sign_in_activity_password_edit_text"
             android:layout_width="@dimen/width_edit_text"
             android:layout_height="@dimen/height_edit_text"
@@ -136,6 +136,12 @@
         android:id="@+id/sign_in_bottom_navigation_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:alpha="0.70"
+        android:fadingEdge="horizontal"
+        android:fadingEdgeLength="20dp"
+        app:itemIconTint="@color/bottom_navigation_color"
+        app:itemTextColor="@color/bottom_navigation_color"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

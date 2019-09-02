@@ -1,4 +1,4 @@
-package com.suonk.socialmusician.controller
+package com.suonk.socialmusician.controller.activity
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -25,9 +25,11 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.textfield.TextInputLayout
 import com.suonk.socialmusician.R
+import com.suonk.socialmusician.controller.CircularImageView
 import com.suonk.socialmusician.model.MusicStyle
 import com.suonk.socialmusician.model.User
 import java.io.ByteArrayOutputStream
+import java.util.*
 
 class EditMyProfileActivity : AppCompatActivity() {
 
@@ -103,7 +105,7 @@ class EditMyProfileActivity : AppCompatActivity() {
         edit_my_profile_UserLocalisation!!.editText!!.setText(user.localisation)
         edit_my_profile_UserDescription!!.editText!!.setText(user.description)
 
-        if (edit_my_profile_UserDescription!!.editText!!.text.toString().isEmpty()) {
+        if (edit_my_profile_UserDescription!!.editText!!.text.toString() == "") {
             edit_my_profile_DescriptionLimitChar!!.text = "" + descriptionLimitChar
         } else {
             descriptionLimitChar += (length - edit_my_profile_UserDescription!!.editText!!.text.toString().length)

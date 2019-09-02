@@ -5,20 +5,20 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.graphics.Point
 import android.os.Bundle
-
-import com.google.android.material.bottomnavigation.BottomNavigationView
-
-import androidx.appcompat.app.AppCompatActivity
-
 import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
-
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatEditText
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.suonk.socialmusician.R
+import java.util.*
+
 
 //import com.google.firebase.
 //import com.google.firebase.database.FirebaseDatabase;
@@ -29,9 +29,11 @@ class SignInActivity : AppCompatActivity() {
 
     private var sign_in_BottomNavigationView: BottomNavigationView? = null
 
-    private var sign_in_activity_Email: EditText? = null
-    private var sign_in_activity_Password: EditText? = null
+    private var sign_in_activity_Email: AppCompatEditText? = null
+    private var sign_in_activity_Password: AppCompatEditText? = null
     private var sign_in_activity_SignInButton: MaterialButton? = null
+
+    private final var RC_SIGN_IN = 123
 
     private var mAuth: FirebaseAuth? = null
 
@@ -88,8 +90,17 @@ class SignInActivity : AppCompatActivity() {
         sign_in_BottomNavigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
         sign_in_activity_SignInButton!!.setOnClickListener {
-            signInExistingUsers(sign_in_activity_Email!!.toString(), sign_in_activity_Email!!.toString())
-            startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+            if (sign_in_activity_Email!!.text.toString().isEmpty() || sign_in_activity_Password!!.text.toString().isEmpty()) {
+                Toast.makeText(this@SignInActivity, "Field should not be empty",
+                        Toast.LENGTH_SHORT).show()
+            } else {
+                signInExistingUsers(sign_in_activity_Email!!.text.toString(), sign_in_activity_Password!!.text.toString())
+
+                MaterialAlertDialogBuilder(this)
+                        .setTitle(sign_in_activity_Email!!.text.toString())
+                        .setMessage(sign_in_activity_Password!!.text.toString())
+                        .show()
+            }
         }
 
         //endregion
@@ -117,24 +128,6 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
-    private fun signUpNewUsers() {
-        mAuth!!.createUserWithEmailAndPassword(sign_in_activity_Email!!.toString(), sign_in_activity_Email!!.toString())
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d(TAG, "createUserWithEmail:success")
-                        val user = mAuth!!.currentUser
-                        updateUI(user)
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                        Toast.makeText(this@SignInActivity, "Authentication failed.",
-                                Toast.LENGTH_SHORT).show()
-                        updateUI(null)
-                    }
-                }
-    }
-
     private fun hideKeyboard() {
         // Check if no view has focus:
         val view = this.currentFocus
@@ -153,7 +146,7 @@ class SignInActivity : AppCompatActivity() {
                         Log.d(TAG, "signInWithEmail:success")
                         val user = mAuth!!.currentUser
                         updateUI(user)
-
+                        startActivity(Intent(this@SignInActivity, MainActivity::class.java))
 
                     } else {
                         // If sign in fails, display a message to the user.
@@ -166,6 +159,19 @@ class SignInActivity : AppCompatActivity() {
                     // ...
                 }
     }
+
+//    private fun startSignInActivity() {
+//        startActivityForResult(
+//                AuthUI.getInstance()
+//                        .createSignInIntentBuilder()
+//                        .setTheme(com.suonk.socialmusician.R.style.LoginTheme)
+//                        .setAvailableProviders(
+//                                Arrays.asList(AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build()))
+//                        .setIsSmartLockEnabled(false, true)
+//                        .setLogo(R.drawable.ic_sign_in)
+//                        .build(),
+//                RC_SIGN_IN)
+//    }
 
     companion object {
         private val TAG = "MainActivity"

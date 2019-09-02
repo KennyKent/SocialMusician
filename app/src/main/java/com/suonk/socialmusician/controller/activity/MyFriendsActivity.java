@@ -47,7 +47,7 @@ public class MyFriendsActivity extends AppCompatActivity implements NavigationVi
             startActivity(new Intent(MyFriendsActivity.this, MainActivity.class));
             finish();
             // Handle the camera action
-        } else if (id == R.id.nav_add_user) {
+        } else if (id == R.id.nav_friends) {
             startActivity(new Intent(MyFriendsActivity.this, MyFriendsActivity.class));
             finish();
 

@@ -19,8 +19,8 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.suonk.socialmusician.controller.CircularImageView
 import com.suonk.socialmusician.controller.MusiciansGridViewAdapter
-import com.suonk.socialmusician.model.ModelDB.MusicianDB
 import com.suonk.socialmusician.model.MusicStyle
+import com.suonk.socialmusician.model.MusicianDB
 import com.suonk.socialmusician.model.User
 import java.util.ArrayList
 
@@ -43,21 +43,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private val listOfMusicians: List<MusicianDB>
         get() {
             val listOfMusicians = ArrayList<MusicianDB>()
-            val Leo = MusicianDB(1, "Leo", "Sevran, France", "Bla bla bla", 24, R.drawable.img_avatar, "Bass", MusicStyle(""), true)
-            val Juju = MusicianDB(2, "Juju", "Sevran, France", "Bliblo", 26, R.drawable.img_avatar, "Bass", MusicStyle(""), true)
-            val Thomas = MusicianDB(3, "Thomas", "Blancoc, France", "Ble ble", 22, R.drawable.img_avatar, "Drum", MusicStyle(""), true)
-            val Matthias = MusicianDB(4, "Matthias", "Villejuif, France", "", 20, R.drawable.img_avatar, "Keyboard", MusicStyle(""), true)
-            val Flo = MusicianDB(5, "Flo", "Aulnay Sous Bois, France", "bdjqodijzdoijqz", 24, R.drawable.img_avatar, "Guitar", MusicStyle(""), true)
-            val Adri = MusicianDB(6, "Adri", "Ermont - Eaubonne, France", "bdjqodijzdoijqz", 20, R.drawable.img_avatar, "Sax", MusicStyle(""), true)
-            val Samson = MusicianDB(7, "Samson", "Villiers sur Marne, France", "bdjqodijzdoijqz", 18, R.drawable.img_avatar, "Drum", MusicStyle(""), true)
-
-            listOfMusicians.add(Leo)
-            listOfMusicians.add(Juju)
-            listOfMusicians.add(Thomas)
-            listOfMusicians.add(Matthias)
-            listOfMusicians.add(Flo)
-            listOfMusicians.add(Adri)
-            listOfMusicians.add(Samson)
+//            val Leo = MusicianDB(1, "Leo", "Sevran, France", "Bla bla bla", 24, R.drawable.img_avatar, "Bass", MusicStyle(""), true)
+//            val Juju = MusicianDB(2, "Juju", "Sevran, France", "Bliblo", 26, R.drawable.img_avatar, "Bass", MusicStyle(""), true)
+//            val Thomas = MusicianDB(3, "Thomas", "Blancoc, France", "Ble ble", 22, R.drawable.img_avatar, "Drum", MusicStyle(""), true)
+//            val Matthias = MusicianDB(4, "Matthias", "Villejuif, France", "", 20, R.drawable.img_avatar, "Keyboard", MusicStyle(""), true)
+//            val Flo = MusicianDB(5, "Flo", "Aulnay Sous Bois, France", "bdjqodijzdoijqz", 24, R.drawable.img_avatar, "Guitar", MusicStyle(""), true)
+//            val Adri = MusicianDB(6, "Adri", "Ermont - Eaubonne, France", "bdjqodijzdoijqz", 20, R.drawable.img_avatar, "Sax", MusicStyle(""), true)
+//            val Samson = MusicianDB(7, "Samson", "Villiers sur Marne, France", "bdjqodijzdoijqz", 18, R.drawable.img_avatar, "Drum", MusicStyle(""), true)
+//
+//            listOfMusicians.add(Leo)
+//            listOfMusicians.add(Juju)
+//            listOfMusicians.add(Thomas)
+//            listOfMusicians.add(Matthias)
+//            listOfMusicians.add(Flo)
+//            listOfMusicians.add(Adri)
+//            listOfMusicians.add(Samson)
 
             return listOfMusicians
         }
@@ -119,7 +119,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_HeaderUserMusicStyle!!.text = user.musicStyle[1].musicStyle
 
         nav_Header!!.setOnClickListener {
-            startActivity(Intent(this@MainActivity, MyProfileActivity::class.java))
+//            startActivity(Intent(this@MainActivity, MyProfileActivity::class.java))
         }
 
         //endregion
@@ -156,7 +156,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_home -> {
             }
             R.id.nav_add_user -> {
-                startActivity(Intent(this@MainActivity, MyFriendsActivity::class.java))
+//                startActivity(Intent(this@MainActivity, MyFriendsActivity::class.java))
             }
             R.id.nav_settings -> {
 

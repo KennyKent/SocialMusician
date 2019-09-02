@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.suonk.socialmusician.R;
-import com.suonk.socialmusician.model.ModelDB.MusicianDB;
+import com.suonk.socialmusician.model.MusicianDB;
 
 import java.util.List;
 
@@ -57,8 +57,8 @@ public class MusiciansGridViewAdapter extends BaseAdapter {
         holder.musicians_grid_item_RoundedImage = gridview.findViewById(R.id.grid_musicians_item_rounded_image);
         holder.musicians_grid_item_FirstName = gridview.findViewById(R.id.grid_musicians_item_first_name);
 
-        holder.musicians_grid_item_RoundedImage.setImageResource(listOfMusicians.get(position).getProfilePicture());
-        holder.musicians_grid_item_FirstName.setText(listOfMusicians.get(position).getFirstName() + " " + listOfMusicians.get(position).getLastName());
+//        holder.musicians_grid_item_RoundedImage.setImageResource(listOfMusicians.get(position).getProfilePicture());
+//        holder.musicians_grid_item_FirstName.setText(listOfMusicians.get(position).getFirstName() + " " + listOfMusicians.get(position).getLastName());
 
         gridview.setTag(holder);
 
