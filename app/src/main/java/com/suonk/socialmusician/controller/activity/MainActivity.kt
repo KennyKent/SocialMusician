@@ -1,5 +1,6 @@
 package com.suonk.socialmusician.controller.activity
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 
@@ -12,26 +13,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
 import android.view.MenuItem
-import android.widget.GridView
-import android.widget.LinearLayout
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
 import androidx.core.content.ContextCompat
+import com.google.firebase.auth.FirebaseAuth
 import com.suonk.socialmusician.controller.CircularImageView
 import com.suonk.socialmusician.controller.MusiciansGridViewAdapter
-import com.suonk.socialmusician.model.MusicStyle
-import com.suonk.socialmusician.model.MusicianDB
-import com.suonk.socialmusician.model.User
-import java.util.ArrayList
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity() {
 
     //region ========================================== Var or Val ==========================================
 
-    private var drawerLayout: DrawerLayout? = null
+    private var main_DrawerLayout: DrawerLayout? = null
+    private var main_NavigationView: NavigationView? = null
 
     private var main_GridView: GridView? = null
     private var main_Listview: ListView? = null
+
+    private var mAuth: FirebaseAuth? = null
 
     //Nav_Header_View
     private var nav_Header: LinearLayout? = null
@@ -40,55 +38,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private var nav_HeaderUserInstrument: TextView? = null
     private var nav_HeaderUserMusicStyle: TextView? = null
 
-    private val listOfMusicians: List<MusicianDB>
-        get() {
-            val listOfMusicians = ArrayList<MusicianDB>()
-//            val Leo = MusicianDB(1, "Leo", "Sevran, France", "Bla bla bla", 24, R.drawable.img_avatar, "Bass", MusicStyle(""), true)
-//            val Juju = MusicianDB(2, "Juju", "Sevran, France", "Bliblo", 26, R.drawable.img_avatar, "Bass", MusicStyle(""), true)
-//            val Thomas = MusicianDB(3, "Thomas", "Blancoc, France", "Ble ble", 22, R.drawable.img_avatar, "Drum", MusicStyle(""), true)
-//            val Matthias = MusicianDB(4, "Matthias", "Villejuif, France", "", 20, R.drawable.img_avatar, "Keyboard", MusicStyle(""), true)
-//            val Flo = MusicianDB(5, "Flo", "Aulnay Sous Bois, France", "bdjqodijzdoijqz", 24, R.drawable.img_avatar, "Guitar", MusicStyle(""), true)
-//            val Adri = MusicianDB(6, "Adri", "Ermont - Eaubonne, France", "bdjqodijzdoijqz", 20, R.drawable.img_avatar, "Sax", MusicStyle(""), true)
-//            val Samson = MusicianDB(7, "Samson", "Villiers sur Marne, France", "bdjqodijzdoijqz", 18, R.drawable.img_avatar, "Drum", MusicStyle(""), true)
-//
-//            listOfMusicians.add(Leo)
-//            listOfMusicians.add(Juju)
-//            listOfMusicians.add(Thomas)
-//            listOfMusicians.add(Matthias)
-//            listOfMusicians.add(Flo)
-//            listOfMusicians.add(Adri)
-//            listOfMusicians.add(Samson)
-
-            return listOfMusicians
-        }
-
-    private val listOfMusicStyle: List<MusicStyle>
-        get() {
-            val listOfMusicStyle = ArrayList<MusicStyle>()
-
-            listOfMusicStyle.add(MusicStyle("Jazz Funk"))
-            listOfMusicStyle.add(MusicStyle("Blues Soul"))
-
-            return listOfMusicStyle
-        }
-
-    private val user: User
-        get() = User("Kenny", "Paris, France",
-                "Bla bla bla bla bla bla", "Guitariste",
-                listOfMusicStyle, R.drawable.kenzy_profil_image, 22)
-
     //endregion
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val sharedIsNotConnected = getSharedPreferences("isNotConnected", Context.MODE_PRIVATE)
+        if (sharedIsNotConnected.getBoolean("isNotConnected", true)) {
+            startActivity(Intent(this@MainActivity, SignInActivity::class.java))
+            finish()
+        }
 
         //region ====================================== FindViewById() ======================================
 
         main_GridView = findViewById(R.id.main_grid_view_id)
 
         //endregion
+
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance()
 
         //region ========================================== Toolbar =========================================
 
@@ -104,28 +73,59 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         //region ======================================= DrawerLayout =======================================
 
         // Drawerlayout
-        drawerLayout = findViewById(R.id.drawer_layout)
-        val navigationView = findViewById<NavigationView>(R.id.nav_view)
-        val headerView = navigationView.getHeaderView(0)
-        nav_Header = headerView.findViewById(R.id.nav_header_main)
-        nav_HeaderUserImage = headerView.findViewById(R.id.nav_header_my_profile_user_image)
-        nav_HeaderUserName = headerView.findViewById(R.id.nav_header_my_profile_user_name)
-        nav_HeaderUserInstrument = headerView.findViewById(R.id.nav_header_my_profile_music_instrument)
-        nav_HeaderUserMusicStyle = headerView.findViewById(R.id.nav_header_my_profile_music_style)
+        main_DrawerLayout = findViewById(R.id.main_drawer_layout)
+        main_NavigationView = findViewById(R.id.main_nav_view)
+        val menuItem = main_NavigationView!!.menu
 
-        nav_HeaderUserImage!!.setImageResource(user.profileImage)
-        nav_HeaderUserName!!.text = user.name
-        nav_HeaderUserInstrument!!.text = user.instrument
-        nav_HeaderUserMusicStyle!!.text = user.musicStyle[1].musicStyle
+        //On récupère l'item correspondant à l'activité Home-Contacts
+        val navItem = menuItem.findItem(R.id.nav_home)
 
-        nav_Header!!.setOnClickListener {
-//            startActivity(Intent(this@MainActivity, MyProfileActivity::class.java))
+        //Puis nous la mettons en surbrillance par rapport aux autres options
+        navItem.isChecked = true
+
+        //Lorsque l'utilisateur clique sur un des éléments du drawer nous le fermons puis ouvrons une nouvelle activité
+        main_NavigationView!!.setNavigationItemSelectedListener {
+            //   menuItem.isChecked = true
+            main_DrawerLayout!!.closeDrawers()
+            when (it.itemId) {
+                R.id.nav_home -> {
+                }
+                R.id.nav_friends -> {
+//                startActivity(Intent(this@MainActivity, MyFriendsActivity::class.java))
+                }
+                R.id.nav_settings -> {
+
+                }
+                R.id.nav_help -> {
+
+                }
+                R.id.nav_log_out -> {
+                    val sharedDisconnected = getSharedPreferences("isNotConnected", Context.MODE_PRIVATE)
+                    val edit = sharedDisconnected.edit()
+                    edit.putBoolean("isNotConnected", true)
+                    edit.apply()
+                    startActivity(Intent(this@MainActivity, SignInActivity::class.java))
+                    finish()
+                }
+            }
+
+            true
         }
 
         //endregion
 
-        val gridViewAdapter = MusiciansGridViewAdapter(this, listOfMusicians)
-        main_GridView!!.adapter = gridViewAdapter
+        //region ================================ Intent ==========================================
+
+        val user_id = intent.getIntExtra("user_id", 1)
+
+
+        Toast.makeText(this@MainActivity, mAuth!!.currentUser!!.email.toString(),
+                Toast.LENGTH_SHORT).show()
+
+        //endregion
+
+//        val gridViewAdapter = MusiciansGridViewAdapter(this, listOfMusicians)
+//        main_GridView!!.adapter = gridViewAdapter
     }
 
     //region =========================================== Functions ==========================================
@@ -133,7 +133,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
-                drawerLayout!!.openDrawer(GravityCompat.START)
+                main_DrawerLayout!!.openDrawer(GravityCompat.START)
                 return true
             }
         }
@@ -147,28 +147,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         } else {
             super.onBackPressed()
         }
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // Handle navigation view item clicks here.
-
-        when (item.itemId) {
-            R.id.nav_home -> {
-            }
-            R.id.nav_add_user -> {
-//                startActivity(Intent(this@MainActivity, MyFriendsActivity::class.java))
-            }
-            R.id.nav_settings -> {
-
-            }
-            R.id.nav_help -> {
-
-            }
-        }
-
-        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
-        drawer.closeDrawer(GravityCompat.START)
-        return true
     }
 
     //endregion

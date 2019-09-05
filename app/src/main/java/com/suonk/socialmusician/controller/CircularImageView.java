@@ -33,7 +33,6 @@ public class CircularImageView extends AppCompatImageView {
     private int canvasSize;
     private float shadowRadius;
     private int shadowColor = Color.BLACK;
-    private ShadowGravity shadowGravity = ShadowGravity.BOTTOM;
     private ColorFilter colorFilter;
 
     // Object used to draw
@@ -80,15 +79,6 @@ public class CircularImageView extends AppCompatImageView {
 
         setBackgroundColor(attributes.getColor(R.styleable.CircularImageView_civ_background_color, Color.WHITE));
 
-        // Init Shadow
-        if (attributes.getBoolean(R.styleable.CircularImageView_civ_shadow, false)) {
-            shadowRadius = DEFAULT_SHADOW_RADIUS;
-            drawShadow(attributes.getFloat(R.styleable.CircularImageView_civ_shadow_radius, shadowRadius),
-                    attributes.getColor(R.styleable.CircularImageView_civ_shadow_color, shadowColor));
-            int shadowGravityIntValue = attributes.getInteger(R.styleable.CircularImageView_civ_shadow_gravity, ShadowGravity.BOTTOM.getValue());
-            shadowGravity = ShadowGravity.fromValue(shadowGravityIntValue);
-        }
-
         attributes.recycle();
     }
     //endregion
@@ -109,28 +99,6 @@ public class CircularImageView extends AppCompatImageView {
     public void setBackgroundColor(int backgroundColor) {
         if (paintBackground != null)
             paintBackground.setColor(backgroundColor);
-        invalidate();
-    }
-
-    public void addShadow() {
-        if (shadowRadius == 0)
-            shadowRadius = DEFAULT_SHADOW_RADIUS;
-        drawShadow(shadowRadius, shadowColor);
-        invalidate();
-    }
-
-    public void setShadowRadius(float shadowRadius) {
-        drawShadow(shadowRadius, shadowColor);
-        invalidate();
-    }
-
-    public void setShadowColor(int shadowColor) {
-        drawShadow(shadowRadius, shadowColor);
-        invalidate();
-    }
-
-    public void setShadowGravity(ShadowGravity shadowGravity) {
-        this.shadowGravity = shadowGravity;
         invalidate();
     }
 
@@ -203,40 +171,6 @@ public class CircularImageView extends AppCompatImageView {
         canvasSize = Math.min(w, h);
         if (image != null)
             updateShader();
-    }
-
-    private void drawShadow(float shadowRadius, int shadowColor) {
-        this.shadowRadius = shadowRadius;
-        this.shadowColor = shadowColor;
-        setLayerType(LAYER_TYPE_SOFTWARE, paintBorder);
-
-        float dx = 0.0f;
-        float dy = 0.0f;
-
-        switch (shadowGravity) {
-            case CENTER:
-                dx = 0.0f;
-                dy = 0.0f;
-                break;
-            case TOP:
-                dx = 0.0f;
-                dy = -shadowRadius / 2;
-                break;
-            case BOTTOM:
-                dx = 0.0f;
-                dy = shadowRadius / 2;
-                break;
-            case START:
-                dx = -shadowRadius / 2;
-                dy = 0.0f;
-                break;
-            case END:
-                dx = shadowRadius / 2;
-                dy = 0.0f;
-                break;
-        }
-
-        paintBorder.setShadowLayer(shadowRadius, dx, dy, shadowColor);
     }
 
     private void updateShader() {

@@ -15,8 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.suonk.socialmusician.controller.activity.SignUpActivity"></activity>
-        <activity android:name="com.suonk.socialmusician.controller.activity.MyFriendsActivity" />
+        <activity android:name="com.suonk.socialmusician.controller.activity.SignUpActivity"/>
         <activity android:name="com.suonk.socialmusician.controller.activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

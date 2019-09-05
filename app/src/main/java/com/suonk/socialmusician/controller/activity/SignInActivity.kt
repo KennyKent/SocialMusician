@@ -146,7 +146,12 @@ class SignInActivity : AppCompatActivity() {
                         Log.d(TAG, "signInWithEmail:success")
                         val user = mAuth!!.currentUser
                         updateUI(user)
-                        startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+                        val sharedDisconnected = getSharedPreferences("isNotConnected", Context.MODE_PRIVATE)
+                        val edit = sharedDisconnected.edit()
+                        edit.putBoolean("isNotConnected", false)
+                        edit.apply()
+                        startActivity(Intent(this@SignInActivity, MainActivity::class.java).putExtra("user_id", user!!.uid))
+                        finish()
 
                     } else {
                         // If sign in fails, display a message to the user.

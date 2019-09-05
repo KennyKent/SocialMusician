@@ -25,7 +25,7 @@ class SplashScreenActivity : AppCompatActivity() {
         val slideUp = AnimationUtils.loadAnimation(this, R.anim.slide_up)
 
         Handler().postDelayed({
-            startActivity(Intent(this@SplashScreenActivity, SignInActivity::class.java))
+            startActivity(Intent(this@SplashScreenActivity, MainActivity::class.java))
             finish()
 //            splash_screen_MsnLogo!!.startAnimation(slideUp)
         }, SPLASH_DISPLAY_LENGHT.toLong())

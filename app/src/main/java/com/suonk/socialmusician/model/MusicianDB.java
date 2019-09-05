@@ -18,7 +18,7 @@ public class MusicianDB {
         this.localisation = localisation;
         this.description = description;
         this.instrument = instrument;
-        this.musicStyle = musicStyle;
+//        this.musicStyle = musicStyle;
         this.age = age;
         this.profileImage = profileImage;
         this.isFriend = isFriend;

@@ -5,26 +5,28 @@
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="windowNoTitle">true</item>
-        <item name="backgroundColor">@color/backgroundColor</item>
-        <item name="textColor">@color/textColor</item>
+        <item name="backgroundColor">@color/backgroundColorLight</item>
+        <item name="textColor">@color/textColorLight</item>
         <item name="relativeLayoutPressedColor">@color/relativeLayoutPressedColor</item>
         <item name="borderViewColor">@color/borderViewColor</item>
         <item name="android:windowAnimationStyle">@style/noAnimTheme</item>
     </style>
 
-    <!-- Dark/Night Mode theme. -->
-    <!--<style name="DarkTheme" parent="Theme.MaterialComponents.Day">-->
-        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
-        <!--<item name="windowActionBar">false</item>-->
-        <!--<item name="windowNoTitle">true</item>-->
-        <!--<item name="backgroundColor">@color/backgroundColor</item>-->
-        <!--<item name="textColor">@color/textColor</item>-->
-        <!--<item name="relativeLayoutPressedColor">@color/relativeLayoutPressedColor</item>-->
-        <!--<item name="borderViewColor">@color/borderViewColor</item>-->
-        <!--<item name="colorSurface">@color/borderViewColor</item>-->
-        <!--<item name="android:windowAnimationStyle">@style/noAnimTheme</item>-->
-    <!--</style>-->
+    Dark/Night Mode theme.
+
+    <style name="DarkTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="backgroundColor">@color/backgroundColorDark</item>
+        <item name="textColor">@color/textColorDark</item>
+        <item name="relativeLayoutPressedColor">@color/relativeLayoutPressedColor</item>
+        <item name="borderViewColor">@color/borderViewColor</item>
+        <item name="colorSurface">@color/borderViewColor</item>
+        <item name="android:windowAnimationStyle">@style/noAnimTheme</item>
+    </style>
 
 
     <style name="windowAnimationTransition">
