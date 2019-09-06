@@ -7,32 +7,6 @@
     android:background="@drawable/sign_in_background"
     tools:context=".controller.activity.SignInActivity">
 
-    <TextView
-        android:id="@+id/sign_in_activity_app_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="@string/app_name"
-        android:textColor="@color/textColor"
-        android:textSize="45sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/sign_in_activity_app_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/sign_in_activity_app_description"
-        android:textColor="@color/textColorGrey"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign_in_activity_app_name" />
-
     <ImageView
         android:id="@+id/sign_in_activity_app_logo"
         android:layout_width="125dp"
@@ -54,17 +28,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_in_activity_app_logo">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/sign_in_activity_email_image_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rectangle_background_grey"
-            android:contentDescription="@string/sign_in_activity_mail_content_description"
-            app:srcCompat="@drawable/ic_man_user" />
-
-        <!--android:layout_width="@dimen/width_edit_text"-->
-        <!--android:layout_height="@dimen/height_edit_text"-->
-
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/sign_in_activity_email_edit_text"
             android:layout_width="@dimen/width_edit_text"
@@ -73,11 +36,22 @@
             android:layout_toEndOf="@+id/sign_in_activity_email_image_view"
             android:background="@drawable/custom_edit_text_background"
             android:hint="@string/sign_in_activity_mail_hint"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
             android:inputType="textEmailAddress"
             android:paddingStart="10dp"
-            android:paddingEnd="10dp" />
+            android:paddingEnd="10dp"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/textColorDark" />
+
+        <!--android:layout_width="@dimen/width_edit_text"-->
+        <!--android:layout_height="@dimen/height_edit_text"-->
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/sign_in_activity_email_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_background_grey"
+            android:contentDescription="@string/sign_in_activity_mail_content_description"
+            app:srcCompat="@drawable/ic_man_user" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -90,14 +64,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_in_activity_email_layout">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/sign_in_activity_password_image_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rectangle_background_grey"
-            android:contentDescription="@string/sign_in_activity_password_content_description"
-            app:srcCompat="@drawable/ic_lock" />
-
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/sign_in_activity_password_edit_text"
             android:layout_width="@dimen/width_edit_text"
@@ -108,18 +74,44 @@
             android:hint="@string/sign_in_activity_password_hint"
             android:inputType="textPassword"
             android:paddingStart="10dp"
-            android:paddingEnd="10dp" />
+            android:paddingEnd="10dp"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/textColorDark" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/sign_in_activity_password_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_background_grey"
+            android:contentDescription="@string/sign_in_activity_password_content_description"
+            app:srcCompat="@drawable/ic_lock" />
     </RelativeLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/sign_in_activity_sign_in_button"
-        android:layout_width="100dp"
+    <TextView
+        android:id="@+id/sign_in_activity_app_description"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/sign_in_activity_button_sign_in"
+        android:layout_marginTop="10dp"
+        android:text="@string/sign_in_activity_app_description"
+        android:textColor="@color/textColorLightGrey"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign_in_activity_password_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/sign_in_activity_app_name" />
+
+    <TextView
+        android:id="@+id/sign_in_activity_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/app_name"
+        android:textColor="@color/colorPrimaryLight"
+        android:textSize="45sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/sign_in_activity_forget_password_link"
@@ -148,5 +140,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/sign_in_bottom_navigation_view" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sign_in_activity_sign_in_button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="@string/sign_in_activity_button_sign_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_in_activity_password_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

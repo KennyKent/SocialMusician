@@ -49,7 +49,7 @@ class SignInActivity : AppCompatActivity() {
         // Nous permet d'avoir un écran adapté a différente taille d'écran
         when {
             height > 2500 -> setContentView(R.layout.activity_sign_in_bigger)
-            height in 2000..2499 -> setContentView(R.layout.activity_sign_in_bigger)
+            height in 2000..2499 -> setContentView(R.layout.activity_sign_in_normal)
             height in 1200..2101 -> setContentView(R.layout.activity_sign_in_normal)
             height < 1200 -> setContentView(R.layout.activity_sign_in_normal)
         }

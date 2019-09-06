@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:maxLines="1"
-                android:textColor="@color/textColor" />
+                android:textColor="?attr/textColor" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,7 +74,7 @@
                 android:layout_height="match_parent"
                 android:inputType="textLongMessage"
                 android:maxLines="5"
-                android:textColor="@color/textColor" />
+                android:textColor="?attr/textColor" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:maxLines="1"
-                android:textColor="@color/textColor" />
+                android:textColor="?attr/textColor" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:maxLines="1"
-                android:textColor="@color/textColor" />
+                android:textColor="?attr/textColor" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -136,7 +136,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:maxLines="1"
-                android:textColor="@color/textColor" />
+                android:textColor="?attr/textColor" />
 
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

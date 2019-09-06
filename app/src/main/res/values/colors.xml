@@ -4,22 +4,25 @@
 
     <color name="textColorLight">#2B2B2B</color>
     <color name="backgroundColorLight">#f8f9fb</color>
+    <color name="textColorLightGrey">#d3d3d3</color>
 
 
     <!--endregion !-->
 
     <!--region ====================================== Theme Dark ======================================= -->
 
-    <color name="textColorDark">#d3d3d3</color>
+    <color name="textColorDark">#ebebeb</color>
     <color name="backgroundColorDark">#282828</color>
+    <color name="textColorDarkGrey">#6C6C6C</color>
 
 
     <!--endregion !-->
 
     <color name="colorPrimary">#1550c4</color>
-    <color name="colorPrimaryLight">#2e63c9</color>
+    <color name="colorPrimaryLight">#1e55ff</color>
     <color name="colorPrimaryDark">#0026c4</color>
     <color name="colorAccent">#4D6361</color>
+    <color name="transparentColor">#FF000000</color>
 
     <color name="darkGray">#6C6C6C</color>
     <color name="white">#FFFFFF</color>
@@ -27,7 +30,6 @@
 
     <color name="colorBackgroundGrey">#1F000000</color>
 
-    <color name="textColorGrey">#6C6C6C</color>
     <color name="whiteColor">#FFFFFF</color>
     <color name="textColor_light">#772D2D2D</color>
     <color name="relativeLayoutPressedColor">#e0e0e0</color>
