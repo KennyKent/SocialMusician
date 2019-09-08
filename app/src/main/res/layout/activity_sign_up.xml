@@ -4,21 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/sign_in_background"
     tools:context=".controller.activity.SignUpActivity">
-
-    <com.suonk.socialmusician.controller.CircularImageView
-        android:id="@+id/sign_up_activity_rounded_image_view"
-        android:layout_width="@dimen/rounded_image_view_height_width"
-        android:layout_height="@dimen/rounded_image_view_height_width"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="8dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/img_avatar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <RelativeLayout
         android:id="@+id/sign_up_activity_first_name_layout"
@@ -32,16 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_activity_rounded_image_view">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/sign_up_activity_first_name_icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/rectangle_background_grey"
-            android:contentDescription="@string/sign_up_activity_name_content_description"
-            app:srcCompat="@drawable/ic_man_user" />
-
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/sign_up_activity_first_name"
             android:layout_width="match_parent"
@@ -54,7 +31,18 @@
             android:maxLines="1"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:textColor="@color/textColorDark" />
+            android:textColor="@color/textColorDark"
+            android:textColorHint="@color/textColorLightGrey" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/sign_up_activity_first_name_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/rectangle_background_grey"
+            android:contentDescription="@string/sign_up_activity_name_content_description"
+            app:srcCompat="@drawable/ic_man_user" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -70,16 +58,6 @@
         app:layout_constraintTop_toBottomOf="@+id/sign_up_activity_first_name_layout">
 
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/sign_up_activity_last_name_icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/rectangle_background_grey"
-            android:contentDescription="@string/sign_up_activity_name_content_description"
-            app:srcCompat="@drawable/ic_man_user" />
-
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/sign_up_activity_last_name"
             android:layout_width="match_parent"
@@ -92,7 +70,18 @@
             android:maxLines="1"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:textColor="@color/textColorDark" />
+            android:textColor="@color/textColorDark"
+            android:textColorHint="@color/textColorLightGrey" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/sign_up_activity_last_name_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/rectangle_background_grey"
+            android:contentDescription="@string/sign_up_activity_name_content_description"
+            app:srcCompat="@drawable/ic_man_user" />
 
     </RelativeLayout>
 
@@ -130,7 +119,8 @@
             android:maxLines="1"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:textColor="@color/textColorDark" />
+            android:textColor="@color/textColorDark"
+            android:textColorHint="@color/textColorLightGrey" />
 
     </RelativeLayout>
 
@@ -146,16 +136,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_activity_mail_address_layout">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/sign_up_activity_password_icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/rectangle_background_grey"
-            android:contentDescription="@string/sign_up_activity_password_content_description"
-            app:srcCompat="@drawable/ic_lock" />
-
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/sign_up_activity_password"
             android:layout_width="match_parent"
@@ -168,7 +148,18 @@
             android:maxLines="1"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:textColor="@color/textColorDark" />
+            android:textColor="@color/textColorDark"
+            android:textColorHint="@color/textColorLightGrey" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/sign_up_activity_password_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/rectangle_background_grey"
+            android:contentDescription="@string/sign_up_activity_password_content_description"
+            app:srcCompat="@drawable/ic_lock" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -183,16 +174,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_activity_password_layout">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/sign_up_activity_password_confirmed_icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/rectangle_background_grey"
-            android:contentDescription="@string/sign_up_activity_password_content_description"
-            app:srcCompat="@drawable/ic_lock" />
-
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/sign_up_activity_password_confirmed"
             android:layout_width="match_parent"
@@ -205,9 +186,37 @@
             android:maxLines="1"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:textColor="@color/textColorDark" />
+            android:textColor="@color/textColorDark"
+            android:textColorHint="@color/textColorLightGrey" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/sign_up_activity_password_confirmed_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/rectangle_background_grey"
+            android:contentDescription="@string/sign_up_activity_password_content_description"
+            app:srcCompat="@drawable/ic_lock" />
 
     </RelativeLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/sign_up_bottom_navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.70"
+        android:fadingEdge="horizontal"
+        android:fadingEdgeLength="20dp"
+        android:background="@color/transparentDarkColor"
+        app:backgroundTint="@color/transparentDarkColor"
+        app:itemIconTint="@color/disconnected_bottom_navigation_color"
+        app:itemTextColor="@color/disconnected_bottom_navigation_color"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/sign_in_bottom_navigation_view"  />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/sign_in_activity_sign_in_button"
@@ -219,13 +228,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_activity_password_confirmed_layout" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/sign_up_bottom_navigation_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/sign_in_bottom_navigation_view" />
+    <com.suonk.socialmusician.controller.CircularImageView
+        android:id="@+id/sign_up_activity_rounded_image_view"
+        android:layout_width="@dimen/rounded_image_view_height_width"
+        android:layout_height="@dimen/rounded_image_view_height_width"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/img_avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

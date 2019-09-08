@@ -5,12 +5,14 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.graphics.Point
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatEditText
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -33,7 +35,8 @@ class SignInActivity : AppCompatActivity() {
     private var sign_in_activity_Password: AppCompatEditText? = null
     private var sign_in_activity_SignInButton: MaterialButton? = null
 
-    private final var RC_SIGN_IN = 123
+    private var sign_in_activity_Layout: ConstraintLayout? = null
+    private val SPLASH_DISPLAY_LENGHT = 3000
 
     private var mAuth: FirebaseAuth? = null
 
@@ -63,6 +66,8 @@ class SignInActivity : AppCompatActivity() {
         sign_in_activity_SignInButton = findViewById(R.id.sign_in_activity_sign_in_button)
         sign_in_activity_Email = findViewById(R.id.sign_in_activity_email_edit_text)
         sign_in_activity_Password = findViewById(R.id.sign_in_activity_password_edit_text)
+
+        sign_in_activity_Layout = findViewById(R.id.sign_in_activity_layout)
 
         //endregion
 
@@ -95,15 +100,20 @@ class SignInActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT).show()
             } else {
                 signInExistingUsers(sign_in_activity_Email!!.text.toString(), sign_in_activity_Password!!.text.toString())
-
-                MaterialAlertDialogBuilder(this)
-                        .setTitle(sign_in_activity_Email!!.text.toString())
-                        .setMessage(sign_in_activity_Password!!.text.toString())
-                        .show()
             }
         }
 
         //endregion
+
+        Handler().postDelayed({
+            if (sign_in_activity_Layout!!.background == getDrawable(R.drawable.miles)) {
+                sign_in_activity_Layout!!.setBackgroundResource(R.drawable.sign_in_background)
+            }
+
+            if (sign_in_activity_Layout!!.background == getDrawable(R.drawable.sign_in_background)) {
+                sign_in_activity_Layout!!.setBackgroundResource(R.drawable.miles)
+            }
+        }, SPLASH_DISPLAY_LENGHT.toLong())
     }
 
     //region ========================================== Functions ===========================================
@@ -160,7 +170,6 @@ class SignInActivity : AppCompatActivity() {
                                 Toast.LENGTH_SHORT).show()
                         updateUI(null)
                     }
-
                     // ...
                 }
     }

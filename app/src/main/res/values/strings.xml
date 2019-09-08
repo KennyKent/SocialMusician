@@ -21,7 +21,7 @@
         <string name="sign_in_activity_app_description">A Social Network for Musicians</string>
         <string name="sign_in_activity_button_sign_in">Sign In</string>
 
-        <string name="sign_in_activity_app_logo_content_description">MeetMusicians Logo</string>
+        <string name="sign_in_activity_app_logo_content_description">Social Musician Logo</string>
         <string name="sign_in_activity_mail_content_description">Email Icon</string>
         <string name="sign_in_activity_password_content_description">Password Icon</string>
         <!--endregion Strings related to SignInActivity -->

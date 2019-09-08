@@ -54,20 +54,6 @@ class EditMyProfileActivity : AppCompatActivity() {
     //private var REQUEST_CAMERA: Int? = 1
     private var SELECT_FILE: Int? = 0
 
-    private val listOfMusicStyle: List<MusicStyle>
-        get() {
-            val listOfMusicStyle = ArrayList<MusicStyle>()
-
-            listOfMusicStyle.add(MusicStyle("Jazz Funk"))
-            listOfMusicStyle.add(MusicStyle("Blues Soul"))
-
-            return listOfMusicStyle
-        }
-
-    private val user: User
-        get() = User("Kenny", "Paris, France",
-                "Bla bla bla bla bla bla", "Guitariste",
-                listOfMusicStyle, R.drawable.kenzy_profil_image, 22)
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -98,12 +84,6 @@ class EditMyProfileActivity : AppCompatActivity() {
         edit_my_profile_UserFormation = findViewById(R.id.edit_my_profile_formation)
 
         //endregion
-
-        edit_my_profile_ProfileImage!!.setImageResource(user.profileImage)
-        edit_my_profile_Username!!.editText!!.setText(user.name)
-        edit_my_profile_UserAge!!.prompt = "" + user.age
-        edit_my_profile_UserLocalisation!!.editText!!.setText(user.localisation)
-        edit_my_profile_UserDescription!!.editText!!.setText(user.description)
 
         if (edit_my_profile_UserDescription!!.editText!!.text.toString() == "") {
             edit_my_profile_DescriptionLimitChar!!.text = "" + descriptionLimitChar

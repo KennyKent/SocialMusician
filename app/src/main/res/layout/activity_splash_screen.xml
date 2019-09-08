@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/space_background"
+    android:background="@drawable/sign_in_background"
     android:orientation="vertical"
     tools:context=".controller.activity.SplashScreenActivity">
 
@@ -23,8 +23,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:alpha="0.5"
-        android:background="@color/white"
         android:src="@drawable/ic_musical_notes_symbols" />
 
     <ProgressBar

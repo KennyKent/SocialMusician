@@ -11,75 +11,145 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/whiteBackground">
+        android:background="#bdc1c9">
 
-        <!--<com.google.android.material.appbar.AppBarLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:theme="@style/AppTheme.AppBarOverlay"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent">-->
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <RelativeLayout
+            android:id="@+id/main_toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimaryLight"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <!--</com.google.android.material.appbar.AppBarLayout>-->
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/main_toolbar_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/main_toolbar_messaging"
+                android:layout_toEndOf="@+id/main_toolbar_search_image"
+                android:background="@color/colorPrimaryLight"
+                android:hint="Rechercher"
+                android:textColorHint="@color/textColorDark" />
 
-        <GridView
-            android:id="@+id/main_grid_view_id"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_toolbar_search_image"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="25dp"
+                android:layout_toEndOf="@+id/main_toolbar_open_drawer"
+                android:background="?attr/actionBarItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:srcCompat="@drawable/ic_search" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_toolbar_open_drawer"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:background="?attr/actionBarItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:srcCompat="@drawable/ic_open_drawer" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_toolbar_messaging"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20dp"
+                android:background="?attr/actionBarItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:srcCompat="@drawable/ic_chat" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnWidth="120dp"
-            android:gravity="center"
-            android:numColumns="auto_fit"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="15dp"
+            android:background="@color/transparentLightColor"
             android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="@+id/navigation"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/main_navigation_view">
 
-        <ListView
-            android:id="@+id/main_list_view_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnWidth="120dp"
-            android:gravity="center"
-            android:numColumns="auto_fit"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="@+id/navigation"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/main_posting_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@+id/main_posting_register"
+                android:layout_toEndOf="@+id/main_user_image"
+                android:background="@drawable/custom_edit_text_layout_background"
+                android:hint="Poster quelque chose"
+                android:textColorHint="@color/textColorDarkGrey" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_user_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:srcCompat="@drawable/ic_user_default" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_posting_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20dp"
+                android:background="?attr/actionBarItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:srcCompat="@drawable/ic_chat" />
+
+        </RelativeLayout>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/navigation"
+            android:id="@+id/main_navigation_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            android:background="@color/transparentLightColor"
             android:fadingEdge="horizontal"
             android:fadingEdgeLength="20dp"
-            app:backgroundTint="#ffffff"
-            app:itemIconTint="@color/bottom_navigation_color"
-            app:itemTextColor="@color/bottom_navigation_color"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:backgroundTint="@color/transparentLightColor"
+            app:itemIconTint="@color/connected_bottom_navigation_color"
+            app:itemTextColor="@color/connected_bottom_navigation_color"
+            app:labelVisibilityMode="labeled"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/main_toolbar_layout"
             app:menu="@menu/bottom_navigation_view" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/main_nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_drawer_layout" />
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/main_nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_main"
+            app:menu="@menu/activity_drawer_layout" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
