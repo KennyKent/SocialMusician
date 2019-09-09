@@ -15,6 +15,7 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.checkbox.MaterialCheckBox
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -36,7 +37,8 @@ class SignInActivity : AppCompatActivity() {
     private var sign_in_activity_SignInButton: MaterialButton? = null
 
     private var sign_in_activity_Layout: ConstraintLayout? = null
-    private val SPLASH_DISPLAY_LENGHT = 3000
+
+    private var sign_in_RememberFieldCheckBox: MaterialCheckBox? = null
 
     private var mAuth: FirebaseAuth? = null
 
@@ -76,6 +78,8 @@ class SignInActivity : AppCompatActivity() {
 
         //region ========================================= Listener =========================================
 
+        sign_in_RememberFieldCheckBox!!.
+
         val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.sign_in_frame -> {
@@ -105,15 +109,6 @@ class SignInActivity : AppCompatActivity() {
 
         //endregion
 
-        Handler().postDelayed({
-            if (sign_in_activity_Layout!!.background == getDrawable(R.drawable.miles)) {
-                sign_in_activity_Layout!!.setBackgroundResource(R.drawable.sign_in_background)
-            }
-
-            if (sign_in_activity_Layout!!.background == getDrawable(R.drawable.sign_in_background)) {
-                sign_in_activity_Layout!!.setBackgroundResource(R.drawable.miles)
-            }
-        }, SPLASH_DISPLAY_LENGHT.toLong())
     }
 
     //region ========================================== Functions ===========================================
@@ -126,15 +121,12 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun updateUI(user: FirebaseUser?) {
-        var user = user
-        user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
             val name = user.displayName
             val email = user.email
             val uid = user.uid
 
             val emailVerified = user.isEmailVerified
-
         }
     }
 

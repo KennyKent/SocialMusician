@@ -88,6 +88,33 @@
             app:srcCompat="@drawable/ic_lock" />
     </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_in_activity_password_layout">
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/sign_in_remember_field_checkbox"
+            android:layout_centerVertical="true"
+            android:buttonTint="@color/white"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/sign_in_remember_field_checkbox"
+            android:layout_marginStart="5dp"
+            android:text="Remember field"
+            android:textColor="@color/textColorDark" />
+
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/sign_in_activity_app_description"
         android:layout_width="wrap_content"
