@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_recycler_post_content_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/item_recycler_post_content_infos_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/item_recycler_post_content_infos_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_toEndOf="@+id/item_recycler_post_content_infos_user_image"
+            android:text="Ken Suon"
+            android:textColor="?attr/textColor" />
+
+        <TextView
+            android:id="@+id/item_recycler_post_content_infos_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_recycler_post_content_infos_user_name"
+            android:layout_toEndOf="@+id/item_recycler_post_content_infos_user_image"
+            android:text="7 Septembre 2019 à 10h51"
+            android:textColor="?attr/textColor" />
+
+        <com.suonk.socialmusician.controller.CircularImageView
+            android:id="@+id/item_recycler_post_content_infos_user_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            app:srcCompat="@drawable/ic_man_user" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item_recycler_post_content_text_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_recycler_post_content_infos_layout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Le film Joker de Todd Philips a remporté le Lion d'or de la 76e Mostra de Venis ! \n dzqdzq"
+            android:textColor="?attr/textColor" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

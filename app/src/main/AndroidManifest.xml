@@ -23,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.suonk.socialmusician.controller.activity.MyFriendsActivity"/>
         <activity android:name="com.suonk.socialmusician.controller.activity.SignInActivity" />
         <activity
             android:name="com.suonk.socialmusician.controller.activity.MainActivity"

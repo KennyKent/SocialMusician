@@ -73,16 +73,6 @@ class EditMyProfileActivity : AppCompatActivity() {
 
         //region ====================================== FindViewById ========================================
 
-        edit_my_profile_DescriptionLimitChar = findViewById(R.id.edit_my_profile_description_limit_char)
-
-        edit_my_profile_ProfileImage = findViewById(R.id.edit_my_profile_rounded_image_view_id)
-        edit_my_profile_Username = findViewById(R.id.edit_my_profile_username)
-        edit_my_profile_UserAge = findViewById(R.id.edit_my_profile_age)
-        edit_my_profile_UserLocalisation = findViewById(R.id.edit_my_profile_place_of_residence)
-        edit_my_profile_UserJob = findViewById(R.id.edit_my_profile_job)
-        edit_my_profile_UserDescription = findViewById(R.id.edit_my_profile_description)
-        edit_my_profile_UserFormation = findViewById(R.id.edit_my_profile_formation)
-
         //endregion
 
         if (edit_my_profile_UserDescription!!.editText!!.text.toString() == "") {
