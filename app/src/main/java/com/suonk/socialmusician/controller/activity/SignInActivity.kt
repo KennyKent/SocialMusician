@@ -7,6 +7,7 @@ import android.graphics.Point
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
@@ -71,14 +72,31 @@ class SignInActivity : AppCompatActivity() {
 
         sign_in_activity_Layout = findViewById(R.id.sign_in_activity_layout)
 
+        sign_in_RememberFieldCheckBox = findViewById(R.id.sign_in_remember_field_checkbox)
+
         //endregion
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance()
 
+        val sharedRememberFieldMail = getSharedPreferences("rememberFieldMail", Context.MODE_PRIVATE)
+        val sharedRememberFieldPassword = getSharedPreferences("rememberFieldPassword", Context.MODE_PRIVATE)
+
+        val sharedRememberField = getSharedPreferences("rememberField", Context.MODE_PRIVATE)
+        if (sharedRememberField.getBoolean("rememberField", false)) {
+            sign_in_RememberFieldCheckBox!!.isChecked = true
+
+            sign_in_activity_Email!!.setText(sharedRememberFieldMail.getString("rememberFieldMail", ""))
+            sign_in_activity_Password!!.setText(sharedRememberFieldPassword.getString("rememberFieldPassword", ""))
+        }
+
         //region ========================================= Listener =========================================
 
-        sign_in_RememberFieldCheckBox!!.
+        sign_in_RememberFieldCheckBox!!.setOnClickListener {
+            val edit = sharedRememberField.edit()
+            edit.putBoolean("rememberField", sign_in_RememberFieldCheckBox!!.isChecked)
+            edit.apply()
+        }
 
         val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -103,6 +121,15 @@ class SignInActivity : AppCompatActivity() {
                 Toast.makeText(this@SignInActivity, "Field should not be empty",
                         Toast.LENGTH_SHORT).show()
             } else {
+                if (sharedRememberField.getBoolean("rememberField", false)) {
+                    val editFieldMail = sharedRememberFieldMail.edit()
+                    editFieldMail.putString("rememberFieldMail", sign_in_activity_Email!!.text.toString())
+                    editFieldMail.apply()
+
+                    val editFieldPassword = sharedRememberFieldPassword.edit()
+                    editFieldPassword.putString("rememberFieldPassword", sign_in_activity_Password!!.text.toString())
+                    editFieldPassword.apply()
+                }
                 signInExistingUsers(sign_in_activity_Email!!.text.toString(), sign_in_activity_Password!!.text.toString())
             }
         }
