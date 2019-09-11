@@ -3,40 +3,43 @@
     <string name="app_name">Social Musician</string>
     <string name="app_by">by Kenzy Suon</string>
 
+    <string name="facebook_app_id">489496498263384</string>
+    <string name="fb_login_protocol_scheme">fb489496498263384</string>
+
     <!-- Strings related to Bottom Navigation View in Main App -->
     <string name="bottom_navigation_view_home">Home</string>
     <string name="bottom_navigation_view_music">My Music</string>
 
     <!--region [Strings related to Sign In / Sign Up]-->
-        <!--region Strings related to Bottom Navigation View in Sign In and Sign Up -->
+    <!--region Strings related to Bottom Navigation View in Sign In and Sign Up -->
     <string name="bottom_navigation_sign_in">Sign In</string>
     <string name="bottom_navigation_sign_up">Sign Up</string>
     <string name="bottom_navigation_sign_up_network">With Socials Networks</string>
     <!--endregion Strings related to Bottom Navigation View in Sign In and Sign Up -->
 
-        <!--region Strings related to SignInActivity -->
-        <string name="sign_in_activity_mail_hint">Enter your mail address</string>
-        <string name="sign_in_activity_password_hint">Enter your password</string>
-        <string name="sign_in_activity_forget_password_link">Forgot password ?</string>
-        <string name="sign_in_activity_app_description">A Social Network for Musicians</string>
-        <string name="sign_in_activity_button_sign_in">Sign In</string>
+    <!--region Strings related to SignInActivity -->
+    <string name="sign_in_activity_mail_hint">Enter your mail address</string>
+    <string name="sign_in_activity_password_hint">Enter your password</string>
+    <string name="sign_in_activity_forget_password_link">Forgot password ?</string>
+    <string name="sign_in_activity_app_description">A Social Network for Musicians</string>
+    <string name="sign_in_activity_button_sign_in">Sign In</string>
 
-        <string name="sign_in_activity_app_logo_content_description">Social Musician Logo</string>
-        <string name="sign_in_activity_mail_content_description">Email Icon</string>
-        <string name="sign_in_activity_password_content_description">Password Icon</string>
-        <!--endregion Strings related to SignInActivity -->
+    <string name="sign_in_activity_app_logo_content_description">Social Musician Logo</string>
+    <string name="sign_in_activity_mail_content_description">Email Icon</string>
+    <string name="sign_in_activity_password_content_description">Password Icon</string>
+    <!--endregion Strings related to SignInActivity -->
 
-        <!--region Strings related to SignUpActivity -->
-        <string name="sign_up_activity_first_name_hint">First Name</string>
-        <string name="sign_up_activity_last_name_hint">Last Name</string>
-        <string name="sign_up_activity_mail_address_hint">Mail Address</string>
-        <string name="sign_up_activity_password_hint">Password</string>
-        <string name="sign_up_activity_confirmed_password_hint">Password Confirmed</string>
+    <!--region Strings related to SignUpActivity -->
+    <string name="sign_up_activity_first_name_hint">First Name</string>
+    <string name="sign_up_activity_last_name_hint">Last Name</string>
+    <string name="sign_up_activity_mail_address_hint">Mail Address</string>
+    <string name="sign_up_activity_password_hint">Password</string>
+    <string name="sign_up_activity_confirmed_password_hint">Password Confirmed</string>
 
-        <string name="sign_up_activity_name_content_description">Name Icon</string>
-        <string name="sign_up_activity_mail_address_content_description">Email Icon</string>
-        <string name="sign_up_activity_password_content_description">Password Icon</string>
-        <!--endregion Strings related to SignUpActivity -->
+    <string name="sign_up_activity_name_content_description">Name Icon</string>
+    <string name="sign_up_activity_mail_address_content_description">Email Icon</string>
+    <string name="sign_up_activity_password_content_description">Password Icon</string>
+    <!--endregion Strings related to SignUpActivity -->
     <!--endregion [Strings related to Sign In / Sign Up]-->
 
     <!-- Strings related to MyProfile -->
