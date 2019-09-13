@@ -8,7 +8,7 @@
     android:background="@drawable/sign_in_background"
     tools:context=".controller.activity.SignInActivity">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/sign_in_activity_app_logo"
         android:layout_width="125dp"
         android:layout_height="125dp"

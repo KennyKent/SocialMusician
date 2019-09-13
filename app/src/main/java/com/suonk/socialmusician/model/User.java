@@ -3,22 +3,36 @@ package com.suonk.socialmusician.model;
 import java.util.List;
 
 public class User {
+    private String uid;
     private String name;
+    private String mail;
+    private String password;
     private String localisation;
     private String description;
     private String instrument;
     private List<MusicStyle> listOfMusicStyle;
-    private int profileImage;
-    private int age;
+    private String profileImage;
+    private String age;
 
-    public User(String name, String localisation, String description, String instrument, List<MusicStyle> listOfMusicStyle, int profileImage, int age) {
+    public User(String uid, String name, String mail, String password, String profileImage, String age, String localisation, String description, String instrument) {
+        this.uid = uid;
         this.name = name;
+        this.mail = mail;
+        this.password = password;
         this.localisation = localisation;
         this.description = description;
         this.instrument = instrument;
-        this.listOfMusicStyle = listOfMusicStyle;
+//        this.listOfMusicStyle = listOfMusicStyle;
         this.age = age;
         this.profileImage = profileImage;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getName() {
@@ -29,6 +43,22 @@ public class User {
         this.name = name;
     }
 
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getLocalisation() {
         return localisation;
     }
@@ -37,11 +67,11 @@ public class User {
         this.localisation = localisation;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
@@ -61,11 +91,11 @@ public class User {
         this.instrument = instrument;
     }
 
-    public int getProfileImage() {
+    public String getProfileImage() {
         return profileImage;
     }
 
-    public void setProfileImage(int profileImage) {
+    public void setProfileImage(String profileImage) {
         this.profileImage = profileImage;
     }
 
