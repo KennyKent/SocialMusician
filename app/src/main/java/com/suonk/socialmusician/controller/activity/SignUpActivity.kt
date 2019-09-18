@@ -50,6 +50,9 @@ class SignUpActivity : AppCompatActivity() {
 
         //endregion
 
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance()
+
         //region ========================================= Listener =========================================
 
         val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -80,7 +83,7 @@ class SignUpActivity : AppCompatActivity() {
                     Toast.makeText(this@SignUpActivity, "Password were not the same",
                             Toast.LENGTH_SHORT).show()
                 } else {
-//                    signUpNewUsers(sign_up_activity_MailAddress!!.text.toString(), sign_up_activity_Password!!.toString())
+                    signUpNewUsers(sign_up_activity_MailAddress!!.text.toString(), sign_up_activity_Password!!.toString())
                 }
             }
 
@@ -113,23 +116,36 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-//    private fun signUpNewUsers() {
-//        mAuth!!.createUserWithEmailAndPassword(sign_in_activity_Email!!.toString(), sign_in_activity_Email!!.toString())
-//                .addOnCompleteListener(this) { task ->
-//                    if (task.isSuccessful) {
-//                        // Sign in success, update UI with the signed-in user's information
-//                        Log.d(SignInActivity.TAG, "createUserWithEmail:success")
-//                        val user = mAuth!!.currentUser
-//                        updateUI(user)
-//                    } else {
-//                        // If sign in fails, display a message to the user.
-//                        Log.w(SignInActivity.TAG, "createUserWithEmail:failure", task.exception)
-//                        Toast.makeText(this@SignInActivity, "Authentication failed.",
-//                                Toast.LENGTH_SHORT).show()
-//                        updateUI(null)
-//                    }
-//                }
-//    }
+    private fun signUpNewUsers(email: String, password: String) {
+        mAuth!!.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG, "createUserWithEmail:success")
+                        val user = mAuth!!.currentUser
+                        updateUI(user)
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                        Toast.makeText(baseContext, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show()
+                        updateUI(null)
+                    }
+
+                    // ...
+                }
+    }
+
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = mAuth!!.currentUser
+        updateUI(currentUser)
+    }
+
+    companion object {
+        private val TAG = "MainActivity"
+    }
 
     //endregion
 }

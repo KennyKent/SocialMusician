@@ -3,10 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.suonk.socialmusician">
     <!-- To auto-complete the email text field in the sign_in form with the user's emails -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_logo_social_musician"
@@ -15,22 +11,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.suonk.socialmusician.controller.activity.SignUpActivity"/>
-        <activity android:name="com.suonk.socialmusician.controller.activity.SplashScreenActivity">
+        <activity android:name=".controller.activity.SignUpWithSocialActivity"></activity>
+        <activity android:name=".controller.activity.SignUpActivity" />
+        <activity android:name=".controller.activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.suonk.socialmusician.controller.activity.MyFriendsActivity"/>
-        <activity android:name="com.suonk.socialmusician.controller.activity.SignInActivity" />
+        <activity android:name=".controller.activity.MyFriendsActivity" />
+        <activity android:name=".controller.activity.SignInActivity" />
         <activity
-            android:name="com.suonk.socialmusician.controller.activity.MainActivity"
+            android:name=".controller.activity.MainActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.suonk.socialmusician.controller.activity.MyProfileActivity"
+            android:name=".controller.activity.MyProfileActivity"
             android:theme="@style/AppTheme" />
     </application>
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
 </manifest>

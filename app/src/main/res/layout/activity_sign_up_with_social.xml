@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sign_in_background"
+    tools:context=".controller.activity.SignUpWithSocialActivity">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/sign_up_bottom_navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.70"
+        android:fadingEdge="horizontal"
+        android:fadingEdgeLength="20dp"
+        android:background="@color/transparentDarkColor"
+        app:backgroundTint="@color/transparentDarkColor"
+        app:itemIconTint="@color/disconnected_bottom_navigation_color"
+        app:itemTextColor="@color/disconnected_bottom_navigation_color"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/sign_in_bottom_navigation_view"
+        android:layout_alignParentBottom="true"  />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sign_up_with_social_activity_facebook_button"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Sign in with Facebook" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sign_up_with_social_activity_google_button"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/sign_up_with_social_activity_facebook_button"
+            android:layout_height="50dp"
+            android:text="Sign in with Google" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
